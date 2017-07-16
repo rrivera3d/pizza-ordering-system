@@ -1,0 +1,53 @@
+<% include header.ejs %>
+
+<div class="container">
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Details</h3></div>
+    <div class="panel-body">
+      <table id="orders" class="table">
+        <thead>
+        <tr>
+          <th></th>
+          <th width="180">Created</th>
+          <th width="15%">Customer</th>
+          <th width="5%">Qty</th>
+          <th>Description</th>
+          <th width="10%">Price</th>
+          <th width="100">Status</th>
+          <th width="180">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% orders.forEach(function(order, i) { %>
+        <tr>
+          <td><span class="label label-<% if(order.processed) { %>success<% } else { %>default<% } %>"><%= i+1 %></span></td>
+          <td><%= order.created %></td>
+          <td>
+            <strong><%= order.customer.name %></strong><br/>
+            <%= order.customer.address %><br/>
+            <%= order.phone %>
+          </td>
+          <td><%= order.order.quantity %></td>
+          <td><%= order.order.size %> <%= order.order.type %> Pizza<% if (order.order.toppings) { %> <br><small><%= order.order.toppings %></small><% } %></td>
+          <td><%= order.price.total %></td>
+          <td><span class="label label-<% if(order.processed) { %>success<% } else { %>default<% } %>"><%= order.status %></span></td>
+          <td>
+            <button class="delete btn btn-danger " id="<%= order.id %>"><span class="glyphicon glyphicon-trash" /></button>
+            <button class="view btn btn-default " id="<%= order.id %>"><span class="glyphicon glyphicon-eye-open" /></button>
+            <button class="process btn btn-<% if(order.processed) { %>default disabled<% } else { %>success<% } %>" id="<%= order.id %>"><span class="glyphicon glyphicon-export" /></button>
+          </td>
+        </tr>
+        <% }) %>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<script src="/javascripts/orders.js"></script>
+
+<% include footer.ejs %>

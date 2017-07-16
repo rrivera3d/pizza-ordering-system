@@ -1,0 +1,60 @@
+<% include header.ejs %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-6 col-sm-8">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Customer</h3></div>
+        <div class="panel-body">
+          <p><strong>Name:</strong> <%= customer.name %></p>
+          <p><strong>Phone:</strong> <%= customer.phone %></p>
+          <% if (customer.address) { %>
+          <p><strong>Address:</strong> <%= customer.address %></p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Total Price</h3></div>
+        <div class="panel-body text-center">
+          <h1 class="text-primary"><%= price.total %></h1>
+          <small class="text-muted">Taxes (<%= price.taxPercent %>%): <%= price.tax %></small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Order Details</h3></div>
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th width="10%">Qty</th>
+          <th>Description</th>
+          <th width="15%">Price</th>
+          <th width="50">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td><%= order.quantity %></td>
+          <td><%= order.size %> <%= order.type %> Pizza<% if (order.toppings) { %> <br><small><%= order.toppings %></small><% } %></td>
+          <td><%= price.subTotal %></td>
+          <td><span class="label label-<% if(processed) { %>success<% } else { %>default<% } %>"><%= status %></span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-default back" id="back">Go back</button>
+  <% if(!processed) { %><button type="submit" class="btn btn-success process" id="process">Process</button><% } %>
+
+</div>
+
+<script src="/javascripts/orders.js"></script>
+
+<% include footer.ejs %>

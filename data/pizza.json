@@ -1,0 +1,29 @@
+{
+  "basePrice": 10,
+  "baseTime": 15,
+  "extraTimeFactor": 0.25,
+  "sizes": [
+    { "name": 8, "label": "8-inch", "price": 0, "includeBasePrice": true },
+    { "name": 10, "label": "10-inch", "price": 5, "includeBasePrice": true },
+    { "name": 12, "label": "12-inch", "price": 10, "includeBasePrice": true }
+  ],
+  "tax": 0.14,
+  "toppings": [
+    { "name": "cheddar", "label": "Cheddar Cheese", "price": 1 },
+    { "name": "greenPepper", "label": "Green Pepper", "price": 0.5 },
+    { "name": "ham", "label": "Ham", "price": 0.5 },
+    { "name": "jalapeno", "label": "Jalapeno Pepper", "price": 0.5 },
+    { "name": "mozzarella", "label": "Mozzarella Cheese", "price": 1 },
+    { "name": "mushroom", "label": "Mushroom", "price": 0.5 },
+    { "name": "onions", "label": "Onions", "price": 0.5 },
+    { "name": "pepperoni", "label": "Pepperoni", "price": 0.5 },
+    { "name": "pineapple", "label": "Pineapple", "price": 0.5 },
+    { "name": "parmesan", "label": "Shredded Parmesan Cheese", "price": 1 },
+    { "name": "tomatoes", "label": "Tomatoes", "price": 0.5 }
+  ],
+  "types": [
+    { "name": "regular", "label": "Regular", "price": 0 },
+    { "name": "thinCrust", "label": "Thin Crust", "price": 5 },
+    { "name": "thickCrust", "label": "Thick Crust", "price": 8.50 }
+  ]
+}
