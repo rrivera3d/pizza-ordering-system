@@ -17,7 +17,7 @@ $ "C:\Program Files\MongoDB\Server\{version}\bin\mongod.exe" --dbpath .\data\db
 ```
 $ npm install
 ```
-4. Start the app: 
+4. Start the app:
 ```
 $ npm start
 ```
